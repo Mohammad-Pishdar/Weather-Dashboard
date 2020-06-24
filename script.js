@@ -91,6 +91,23 @@ function combinedWeatherReport(city) {
     localStorage.setItem("citiesName", JSON.stringify(cities));
 }
 
+function appStart() {
+
+    if (localStorage.length !== 0) {
+        cities = JSON.parse(localStorage.getItem("citiesName"));
+
+        for (let i = 0; i < cities.length; i++) {
+
+            buttonsDiv.append($("<button type='button' class='btn btn-primary btn-lg m-1 btn-block' data-value=" + cities[i].Name + ">" + cities[i].Name + "</button>"));
+
+        }
+    } else {
+        currentWeather("sydney");
+        fiveDayForecast("sydney");
+    }
+}
+
+
 searchInputForm.on("keyup", function (event) {
     if (event.keyCode === 13) {
         event.preventDefault();
@@ -111,3 +128,4 @@ buttonsDiv.on("click", function () {
 
 currentWeather("sydney");
 fiveDayForecast("sydney");
+appStart();
