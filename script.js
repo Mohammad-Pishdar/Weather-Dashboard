@@ -53,30 +53,37 @@ function fiveDayForecast(city) {
         method: "GET"
     }).then(function (response) {
         console.log(response);
+        let index;
+        for (let i = 0; i < response.list.length; i++) {
+            if (response.list[i].sys.pod === "d") {
+                index = i;
+                break;
+            }
+        }
         $("#day1date").text(moment().add(1, 'days').format('l'));
-        $("#day1Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[1].weather[0].icon + ".png");
-        $("#day1temperature").text(response.list[1].main.temp);
-        $("#day1Humidity").text(response.list[1].main.humidity);
+        $("#day1Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[index + 1].weather[0].icon + ".png");
+        $("#day1temperature").text(response.list[index + 1].main.temp);
+        $("#day1Humidity").text(response.list[index + 1].main.humidity);
 
         $("#day2date").text(moment().add(2, 'days').format('l'));
-        $("#day2Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[9].weather[0].icon + ".png");
-        $("#day2temperature").text(response.list[9].main.temp);
-        $("#day2Humidity").text(response.list[9].main.humidity);
+        $("#day2Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[index + 9].weather[0].icon + ".png");
+        $("#day2temperature").text(response.list[index + 9].main.temp);
+        $("#day2Humidity").text(response.list[index + 9].main.humidity);
 
         $("#day3date").text(moment().add(3, 'days').format('l'));
-        $("#day3Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[17].weather[0].icon + ".png");
-        $("#day3temperature").text(response.list[17].main.temp);
-        $("#day3Humidity").text(response.list[17].main.humidity);
+        $("#day3Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[index + 17].weather[0].icon + ".png");
+        $("#day3temperature").text(response.list[index + 17].main.temp);
+        $("#day3Humidity").text(response.list[index + 17].main.humidity);
 
         $("#day4date").text(moment().add(4, 'days').format('l'));
-        $("#day4Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[25].weather[0].icon + ".png");
-        $("#day4temperature").text(response.list[25].main.temp);
-        $("#day4Humidity").text(response.list[25].main.humidity);
+        $("#day4Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[index + 25].weather[0].icon + ".png");
+        $("#day4temperature").text(response.list[index + 25].main.temp);
+        $("#day4Humidity").text(response.list[index + 25].main.humidity);
 
         $("#day5date").text(moment().add(5, 'days').format('l'));
-        $("#day5Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[33].weather[0].icon + ".png");
-        $("#day5temperature").text(response.list[33].main.temp);
-        $("#day5Humidity").text(response.list[33].main.humidity);
+        $("#day5Icon").attr("src", "https://openweathermap.org/img/wn/" + response.list[index + 33].weather[0].icon + ".png");
+        $("#day5temperature").text(response.list[index + 33].main.temp);
+        $("#day5Humidity").text(response.list[index + 33].main.humidity);
 
     });
 }
