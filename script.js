@@ -26,10 +26,18 @@ function currentWeather(city) {
         }).then(function (response) {
             crrentUvIndexSpan.text(response.value);
             if (response.value >= 8) {
-                crrentUvIndexSpan.addCLass("bg-danger");
-            } else if (response.value < 8 && response.value >= 6) {
+                crrentUvIndexSpan.removeClass("bg-success");
+                crrentUvIndexSpan.removeClass("bg-warning");
+                crrentUvIndexSpan.addClass("bg-danger");
+            }
+            if (response.value < 8 && response.value >= 6) {
+                crrentUvIndexSpan.removeClass("bg-success");
+                crrentUvIndexSpan.removeClass("bg-danger");
                 crrentUvIndexSpan.addClass("bg-warning");
-            } else {
+            }
+            if (response.value < 6) {
+                crrentUvIndexSpan.removeClass("bg-danger");
+                crrentUvIndexSpan.removeClass("bg-warning");
                 crrentUvIndexSpan.addClass("bg-success");
             }
         })
