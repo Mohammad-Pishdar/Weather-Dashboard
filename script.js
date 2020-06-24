@@ -83,7 +83,7 @@ function fiveDayForecast(city) {
 function combinedWeatherReport(city) {
     currentWeather(city);
     fiveDayForecast(city);
-    buttonsDiv.append($("<button type='button' class='btn btn-primary btn-lg m-1 btn-block'>" + searchInputForm.val() + "</button>"));
+    buttonsDiv.append($("<button type='button' class='btn btn-primary btn-lg m-1 btn-block' data-value=" + searchInputForm.val() + ">" + searchInputForm.val() + "</button>"));
 }
 
 searchInputForm.on("keyup", function (event) {
@@ -96,6 +96,12 @@ searchInputForm.on("keyup", function (event) {
 submitButton.on("click", function () {
     let cityName = searchInputForm.val();
     combinedWeatherReport(cityName);
+})
+
+buttonsDiv.on("click", function () {
+    let cityName = event.target.dataset.value;
+    currentWeather(cityName);
+    fiveDayForecast(cityName);
 })
 
 currentWeather("sydney");
