@@ -7,6 +7,7 @@ const weatherIcon = $(".weatherIcon");
 const searchInputForm = $(".form-control");
 const submitButton = $("#submit-button");
 const buttonsDiv = $(".added-buttons");
+let cities = [];
 
 function currentWeather(city) {
     let queryUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=c5d7b2e683d4e3a0a888a7df1a7043fc&units=metric"
@@ -84,6 +85,10 @@ function combinedWeatherReport(city) {
     currentWeather(city);
     fiveDayForecast(city);
     buttonsDiv.append($("<button type='button' class='btn btn-primary btn-lg m-1 btn-block' data-value=" + searchInputForm.val() + ">" + searchInputForm.val() + "</button>"));
+    cities.push({
+        Name: searchInputForm.val()
+    });
+    localStorage.setItem("citiesName", JSON.stringify(cities));
 }
 
 searchInputForm.on("keyup", function (event) {
