@@ -101,9 +101,8 @@ function appStart() {
             buttonsDiv.append($("<button type='button' class='btn btn-primary btn-lg m-1 btn-block' data-value=" + cities[i].Name + ">" + cities[i].Name + "</button>"));
 
         }
-    } else {
-        currentWeather("sydney");
-        fiveDayForecast("sydney");
+        currentWeather(cities[cities.length - 1].Name);
+        fiveDayForecast(cities[cities.length - 1].Name);
     }
 }
 
@@ -126,6 +125,4 @@ buttonsDiv.on("click", function () {
     fiveDayForecast(cityName);
 })
 
-currentWeather("sydney");
-fiveDayForecast("sydney");
 appStart();
