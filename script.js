@@ -56,8 +56,10 @@ function fiveDayForecast(city) {
         let index;
         for (let i = 0; i < response.list.length; i++) {
             if (response.list[i].sys.pod === "d") {
-                index = i;
-                break;
+                if (response.list[i + 1].sys.pod === "d") {
+                    index = i;
+                    break;
+                }
             }
         }
         $("#day1date").text(moment().add(1, 'days').format('l'));
