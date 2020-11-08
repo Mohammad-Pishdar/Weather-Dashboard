@@ -13,7 +13,7 @@ Developers are often tasked with retrieving data from another application's API 
 
 ## Installation
 
-This projec is an inetrenet-based app that runs inside the browser so you don't need to install anything. All you need is an internet browser to run the app. 
+This projec is an inetrenet-based app that runs inside the browser so you don't need to install anything. All you need is an internet browser to run the app. Visit the app by clicking here: https://mohammad-pishdar.github.io/Weather-Dashboard/
 
 
 ## Usage 
