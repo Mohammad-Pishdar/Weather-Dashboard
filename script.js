@@ -52,7 +52,6 @@ function fiveDayForecast(city) {
         url: queryUrl,
         method: "GET"
     }).then(function (response) {
-        console.log(response);
         let index;
         //Had to come up with this special algorithm to choose the highest temperature of the day if it hapens to be the in the first data index on response.list otherwise the algorithm continues looping until it finds the highest temperature in the day. It's not a perfect solution though as it fails to retrieve the exact midday temperature all the time that should logically be reported as the forecasted temperature of the day and leans instead towards the early afternoon temperatures that are a bit higher. I had to use this logic since the free version of forecast of this API gives weather data every 3 hours so instead of 5 distinct weather data to use for your five days you'll end up with an array of 40 items (5 * 8) and the order will change depending on the time of the day. The other option which is probably much easier to use and more accurate than this was to use their 16 day weather forecast API that included an option to set the number of days you want but that was unfortunately only available to the paid users. 
         for (let i = 0; i < response.list.length; i++) {
@@ -135,7 +134,7 @@ submitButton.on("click", function () {
     combinedWeatherReport(cityName);
 })
 
-buttonsDiv.on("click", function () {
+buttonsDiv.on("click", function(event) {
     let cityName = event.target.dataset.value;
     currentWeather(cityName);
     fiveDayForecast(cityName);
