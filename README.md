@@ -7,6 +7,7 @@ Developers are often tasked with retrieving data from another application's API 
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Testing](#testing)
 * [Credits](#credits)
 * [License](#license)
 
@@ -22,6 +23,9 @@ The app has a search box at the top left corner of the page. You can search in t
 
 ![animated gif to show how weather dashboard works](https://github.com/Mohammad-Pishdar/Weather-Dashboard/blob/master/record.gif)
 
+## Testing
+
+Run `npm install` to install the required dependencies, then execute `npm test` to run the Jest test suite.
 
 ## Credits
 
