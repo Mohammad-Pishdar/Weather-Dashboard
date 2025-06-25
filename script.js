@@ -135,7 +135,7 @@ submitButton.on("click", function () {
     combinedWeatherReport(cityName);
 })
 
-buttonsDiv.on("click", function (event) {
+buttonsDiv.on("click", function(event) {
     let cityName = event.target.dataset.value;
     currentWeather(cityName);
     fiveDayForecast(cityName);
